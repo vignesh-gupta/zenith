@@ -1,33 +1,34 @@
-import ForumList from "@/components/ForumList";
+import ForumList from "@/components/forum/ForumCardList";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main className="lg:px-32 md:px-24 px-5">
-      <div className="text-center flex flex-col items-center">
-        <h1 className="text-4xl md:text-5xl lg:text-7xl mt-8 font-extrabold text-black">
+    <main className="px-5 lg:px-32 md:px-24">
+      <div className="flex flex-col items-center text-center">
+        <h1 className="mt-8 text-4xl font-extrabold text-black md:text-5xl lg:text-7xl">
           Contribute Your <br />{" "}
           <span className="text-blue-600">Knowledge and Skills</span>
         </h1>
-        <div className="flex flex-col sm:flex-row gap-3 mt-8">
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full">
+        <div className="flex flex-col gap-3 mt-8 sm:flex-row">
+          <button className="px-6 py-2 text-white bg-blue-600 rounded-full">
             Get Started
           </button>
-          <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full">
+          <button className="px-6 py-2 text-blue-600 border border-blue-600 rounded-full">
             Explore Now
           </button>
         </div>
       </div>
       <div className="mt-8">
-        <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-black max-w-5xl">
+        <h1 className="max-w-5xl text-lg font-semibold text-black md:text-xl lg:text-2xl">
           What is zenith?
         </h1>
-        <p className="mt-4 text-lg text-gray-500 max-w-5xl">
-        the point in the sky directly above an observer.
+        <p className="max-w-5xl mt-4 text-lg text-gray-500">
+          the point in the sky directly above an observer.
         </p>
-        </div>
-        <div>
-          <ForumList />
-        </div>
+      </div>
+      <div>
+        <ForumList />
+      </div>
     </main>
   );
 }

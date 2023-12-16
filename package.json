@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "prisma generate",
+    "dbUpdate": "prisma generate && prisma db push",
+    "dbMigrate": "prisma generate && prisma migrate dev --name init",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -10,6 +13,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.28.1",
+    "@prisma/client": "^5.7.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
@@ -23,10 +27,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/react": "18.2.45",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
+    "prisma": "^5.7.0",
     "tailwindcss": "^3.3.0"
   }
 }

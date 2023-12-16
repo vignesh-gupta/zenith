@@ -41,13 +41,13 @@ const Navbar = () => {
   };
 
   return (
-    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-50 w-full border-b border-muted-foreground backdrop-blur">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex">
-          <a className="mr-6 flex font-semibold items-center space-x-2 text-blue-800" href="/">
+    <header className="sticky top-0 z-50 w-full border-b supports-backdrop-blur:bg-background/60 border-muted backdrop-blur">
+      <div className="container flex items-center h-14">
+        <div className="flex mr-4">
+          <a className="flex items-center mr-6 space-x-2 font-semibold text-blue-800" href="/">
             zenith.
           </a>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="items-center hidden space-x-6 text-sm font-medium md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.text.toLocaleLowerCase()}
@@ -60,7 +60,7 @@ const Navbar = () => {
           </nav>
         </div>
 
-        <div className="justify-end flex-1 flex gap-3 items-center">
+        <div className="flex items-center justify-end flex-1 gap-3">
           {isSignedIn ? (
             <UserButton afterSignOutUrl="/" />
           ) : (
@@ -72,7 +72,7 @@ const Navbar = () => {
         <Sheet>
           <SheetTrigger asChild className="-order-1">
             <Button
-              className="md:hidden mr-3"
+              className="mr-3 md:hidden"
               variant="outline"
               size="icon"
               aria-label="Open Menu"
