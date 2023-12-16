@@ -10,16 +10,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { WithContext as ReactTags } from "react-tag-input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
-import { useUser } from "@clerk/nextjs";
 import { createForum } from "@/lib/forum-actions";
+import { useUser } from "@clerk/nextjs";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { WithContext as ReactTags } from "react-tag-input";
+import * as z from "zod";
 
 export default function CreateFormPage() {
+  const router = useRouter();
+
   const [tags, setTags] = useState([]);
   const { user } = useUser();
 
@@ -48,7 +51,8 @@ export default function CreateFormPage() {
     if (res) {
       form.reset();
       setTags([]);
-    }
+      router.push(`/forum/${res.id}`);
+    } 
   };
   return (
     <div className="flex flex-col items-center px-12 text-black">

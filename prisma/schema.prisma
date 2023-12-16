@@ -15,7 +15,18 @@ model Forum {
   title       String
   description String
   userName    String
+  answers     Answer[]
   keywords    String[] @default([])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Answer {
+  id        String   @id @default(uuid())
+  text      String
+  userName  String
+  forum     Forum    @relation(fields: [forumId], references: [id])
+  forumId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

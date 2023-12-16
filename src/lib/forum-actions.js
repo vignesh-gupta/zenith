@@ -9,7 +9,7 @@ export async function createForum(forum) {
     });
 
     console.log("[FORUM_CREATION_SUCCESS]", res);
-    return true;
+    return res;
   } catch (error) {
     console.log("[FORUM_CREATION_ERROR]", error);
     return false;
